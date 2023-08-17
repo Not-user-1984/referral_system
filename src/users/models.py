@@ -1,7 +1,6 @@
 from django.contrib.auth.models import (AbstractBaseUser, BaseUserManager,
                                         PermissionsMixin)
 from django.db import models
-from rest_framework.authtoken.models import Token
 
 
 class CustomUserManager(BaseUserManager):
@@ -30,8 +29,8 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     activation_code = models.CharField(max_length=6, blank=True, null=True)
     activated_invite_code = models.CharField(
         max_length=6, blank=True, null=True)
-    invite_code = models.CharField(max_length=6, blank=True, null=True)
-
+    invite_code = models.CharField(
+        max_length=6, blank=True, null=True, unique=True)
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
 

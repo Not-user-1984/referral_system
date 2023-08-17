@@ -1,23 +1,34 @@
 import random
+import string
 import time
+from datetime import datetime
+from django.shortcuts import render
+from django.core.exceptions import ObjectDoesNotExist
 from rest_framework import status
+from rest_framework.authtoken.models import Token
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
+
 from .models import CustomUser
-from datetime import datetime
-import string
-from django.core.exceptions import ObjectDoesNotExist
-from rest_framework.authtoken.models import Token
+from .serializers import CustomUserSerializer, ProfilelUserSerializer
 
 last_request_time = None
 last_sent_code = None
 
 
 def generate_invite_code():
-    invite_code = ''.join(random.choices(string.digits, k=2))
-    invite_code += ''.join(random.choices(string.ascii_letters, k=3))
-    invite_code += ''.join(random.choices(string.digits + string.ascii_letters, k=1))
-    return invite_code
+    max_attempts = 10
+    for _ in range(max_attempts):
+        invite_code = ''.join(random.choices(string.digits, k=2))
+        invite_code += ''.join(random.choices(string.ascii_letters, k=3))
+        invite_code += ''.join(random.choices(
+            string.digits + string.ascii_letters, k=1))
+        if not CustomUser.objects.filter(invite_code=invite_code).exists():
+            return invite_code
+    raise Exception(
+        "Failed to generate a unique invite code after {} attempts".format(max_attempts)
+        )
+
 
 def is_valid_phone_number(phone_number):
     return (
@@ -38,7 +49,7 @@ def send_authorization_code(phone_number, authorization_code):
 
 @api_view(['POST'])
 def request_phone_number(request):
-    global last_request_time, last_sent_code
+    last_request_time = None
 
     phone_number = request.data.get('phone_number')
 
@@ -64,15 +75,14 @@ def request_phone_number(request):
     request.session['phone_number'] = phone_number
     request.session['authorization_code'] = authorization_code
     last_request_time = current_time
-    last_sent_code = authorization_code
 
     response_data = {
         'message': 'Authorization code sent',
         'phone_number': phone_number,
         'authorization_code': authorization_code
     }
-
     return Response(response_data, status=status.HTTP_200_OK)
+
 
 
 @api_view(['POST'])
@@ -102,14 +112,10 @@ def verify_code(request):
         invite_code = generate_invite_code()
         user.invite_code = invite_code
         user.save()
-
-        # Создание токена аутентификации
         token, _ = Token.objects.get_or_create(user=user)
-
         return Response({'message': 'User registered', 'token': token.key},
                         status=status.HTTP_201_CREATED)
     else:
-        # Если пользователь уже существует, проверьте, есть ли у него токен.
         try:
             token = Token.objects.get(user=user)
         except ObjectDoesNotExist:
@@ -122,12 +128,8 @@ def verify_code(request):
 @api_view(['GET'])
 def user_profile(request):
     user = request.user
-    profile_data = {
-        'phone_number': user.phone_number,
-        'invite_code': user.invite_code,
-        'activated_invite_code': user.activated_invite_code
-    }
-    return Response(profile_data, status=status.HTTP_200_OK)
+    serializer = ProfilelUserSerializer(user)
+    return Response(serializer.data, status=status.HTTP_200_OK)
 
 
 @api_view(['POST'])
@@ -153,12 +155,16 @@ def activate_invite_code(request):
             {'message': "You can't activate your own invite code"},
             status=status.HTTP_400_BAD_REQUEST)
 
-    invite_code_owner.activated_invite_code =user.invite_code
-    invite_code_owner.save()
-
-    return Response(
-        {'message': 'Invite code activated successfully'},
-        status=status.HTTP_200_OK)
+    if not invite_code_owner.activated_invite_code:
+        invite_code_owner.activated_invite_code = user.invite_code
+        invite_code_owner.save()
+        return Response(
+            {'message': 'Invite code activated successfully'},
+            status=status.HTTP_200_OK)
+    else:
+        return Response(
+            {'message': 'Invite code already activated'},
+            status=status.HTTP_400_BAD_REQUEST)
 
 
 @api_view(['GET'])
@@ -166,5 +172,5 @@ def invited_users_list(request):
     user = request.user
     invited_users = CustomUser.objects.filter(
         activated_invite_code=user.invite_code)
-    user_list = [{'phone_number': invited_user.phone_number} for invited_user in invited_users]
-    return Response(user_list, status=status.HTTP_200_OK)
+    serializer = CustomUserSerializer(invited_users, many=True)
+    return Response(serializer.data, status=status.HTTP_200_OK)

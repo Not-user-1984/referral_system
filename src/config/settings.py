@@ -29,8 +29,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'users',
-    'refarral_service',
-    'rest_framework.authtoken'
+    'rest_framework.authtoken',
+    'drf_yasg',
 ]
 
 MIDDLEWARE = [
@@ -48,7 +48,7 @@ ROOT_URLCONF = 'config.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -63,9 +63,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'config.wsgi.application'
 
-
-# Database
-# https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
     'default': {
@@ -83,9 +80,6 @@ REST_FRAMEWORK = {
     ],
 }
 
-# Password validation
-# https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
-
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -102,10 +96,8 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 AUTH_USER_MODEL = 'users.CustomUser'
-# Internationalization
-# https://docs.djangoproject.com/en/4.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ru'
 
 TIME_ZONE = 'UTC'
 
@@ -113,13 +105,6 @@ USE_I18N = True
 
 USE_TZ = True
 
-
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/4.2/howto/static-files/
-
 STATIC_URL = 'static/'
-
-# Default primary key field type
-# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
