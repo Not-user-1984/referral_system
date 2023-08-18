@@ -2,7 +2,6 @@ import random
 import string
 import time
 from datetime import datetime
-
 from django.core.exceptions import ObjectDoesNotExist
 from rest_framework import status
 from rest_framework.authtoken.models import Token
@@ -11,6 +10,9 @@ from rest_framework.response import Response
 
 from .models import CustomUser
 from .serializers import CustomUserSerializer, ProfilelUserSerializer
+
+last_request_time = None
+last_sent_code = None
 
 
 def generate_invite_code():
@@ -46,6 +48,7 @@ def send_authorization_code(phone_number, authorization_code):
 
 @api_view(['POST'])
 def request_phone_number(request):
+    last_request_time = None
 
     phone_number = request.data.get('phone_number')
 
@@ -78,6 +81,7 @@ def request_phone_number(request):
         'authorization_code': authorization_code
     }
     return Response(response_data, status=status.HTTP_200_OK)
+
 
 
 @api_view(['POST'])
