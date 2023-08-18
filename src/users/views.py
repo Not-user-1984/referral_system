@@ -56,6 +56,11 @@ def request_phone_number(request):
 
     current_time = datetime.now()
 
+    if last_request_time and (current_time - last_request_time).seconds < 30:
+        return Response(
+            {'message': 'Please wait 30 seconds before requesting a new code'},
+            status=status.HTTP_429_TOO_MANY_REQUESTS)
+
     if CustomUser.objects.filter(phone_number=phone_number).exists():
         return Response(
             {'message': 'User already exists'},

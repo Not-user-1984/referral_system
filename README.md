@@ -18,7 +18,7 @@ Password: 1234
 Запуск в docker
 </summary>
 
-Коллекция для теста в posman/local_host.postman_collection
+Коллекция для теста в postman/local_host.postman_collection
 
 ```bash
     git clone git@github.com:Not-user-1984/referral_system.git
@@ -31,12 +31,12 @@ Password: 1234
 
 <br>
 
-Cделано через кастом модели users django,
+Cделано через кастом модель users django,
 можно посмотреть всех пользователей и их ивайты через админку.
 
-Создавать через posman.
+Создавать через postman.
 
-Импорт коллекции в папке posman
+Импорт коллекции в папке postman
 файл dev_host.postman_collection
 
 ``` bash
@@ -59,7 +59,7 @@ http://dima699699.pythonanywhere.com/users/api/request_phone_number/  актив
 
 post-запрос
 http://dima699699.pythonanywhere.com/users/api/activate_invite_code/ активация чужого ивайта
-(что активировать надо  Headers ввести раний полученый токен)
+(Headers ввести раний полученый токен)
 запрос json
 {
     "invite_code": "10JPKp"
