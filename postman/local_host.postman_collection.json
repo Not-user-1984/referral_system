@@ -7,13 +7,13 @@
 	},
 	"item": [
 		{
-			"name": "http://localhost/users/api/request_phone_number/",
+			"name": "http://127.0.0.1:8000/users/api/request_phone_number/",
 			"request": {
 				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"phone_number\": \"+7234567979\"\n}",
+					"raw": "{\n    \"phone_number\": \"+7234567988\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -24,12 +24,8 @@
 					"raw": "http://localhost/users/api/request_phone_number/",
 					"protocol": "http",
 					"host": [
-						"127",
-						"0",
-						"0",
-						"1"
+						"localhost"
 					],
-					"port": "8000",
 					"path": [
 						"users",
 						"api",
@@ -41,7 +37,7 @@
 			"response": []
 		},
 		{
-			"name": "http://localhost/users/api/verify_code/",
+			"name": "http://127.0.0.1:8000/users/api/verify_code/",
 			"request": {
 				"auth": {
 					"type": "noauth"
@@ -61,12 +57,8 @@
 					"raw": "http://localhost/users/api/verify_code/",
 					"protocol": "http",
 					"host": [
-						"127",
-						"0",
-						"0",
-						"1"
+						"localhost"
 					],
-					"port": "8000",
 					"path": [
 						"users",
 						"api",
@@ -78,7 +70,7 @@
 			"response": []
 		},
 		{
-			"name": "http://localhost/users/api/activate_invite_code/",
+			"name": "http://127.0.0.1:8000/users/api/activate_invite_code/",
 			"request": {
 				"auth": {
 					"type": "noauth"
@@ -104,12 +96,8 @@
 					"raw": "http://localhost/users/api/activate_invite_code/",
 					"protocol": "http",
 					"host": [
-						"127",
-						"0",
-						"0",
-						"1"
+						"localhost"
 					],
-					"port": "8000",
 					"path": [
 						"users",
 						"api",
@@ -121,7 +109,7 @@
 			"response": []
 		},
 		{
-			"name": "http://localhost/users/api/invited-users/",
+			"name": "http://127.0.0.1:8000/users/api/invited-users/",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -150,12 +138,8 @@
 					"raw": "http://localhost/users/api/invited-users/",
 					"protocol": "http",
 					"host": [
-						"127",
-						"0",
-						"0",
-						"1"
+						"localhost"
 					],
-					"port": "8000",
 					"path": [
 						"users",
 						"api",
@@ -167,7 +151,7 @@
 			"response": []
 		},
 		{
-			"name": "http://localhost/users/api/user_profile/",
+			"name": "http://127.0.0.1:8000/users/api/user_profile/",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -196,12 +180,8 @@
 					"raw": "http://localhost/users/api/user_profile/",
 					"protocol": "http",
 					"host": [
-						"127",
-						"0",
-						"0",
-						"1"
+						"localhost"
 					],
-					"port": "8000",
 					"path": [
 						"users",
 						"api",

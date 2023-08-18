@@ -1,7 +1,7 @@
 {
 	"info": {
-		"_postman_id": "23d42944-de93-45f0-adf5-36525bd5165d",
-		"name": "dev_host",
+		"_postman_id": "b5b9cef0-671d-4fac-a20b-ebd82f0de164",
+		"name": "dev_host _2",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "23513874"
 	},
@@ -100,12 +100,10 @@
 					"raw": "http://dima699699.pythonanywhere.com/users/api/activate_invite_code/",
 					"protocol": "http",
 					"host": [
-						"127",
-						"0",
-						"0",
-						"1"
+						"dima699699",
+						"pythonanywhere",
+						"com"
 					],
-					"port": "8000",
 					"path": [
 						"users",
 						"api",
@@ -146,12 +144,10 @@
 					"raw": "http://dima699699.pythonanywhere.com/users/api/invited-users/",
 					"protocol": "http",
 					"host": [
-						"127",
-						"0",
-						"0",
-						"1"
+						"dima699699",
+						"pythonanywhere",
+						"com"
 					],
-					"port": "8000",
 					"path": [
 						"users",
 						"api",
@@ -192,12 +188,10 @@
 					"raw": "http://dima699699.pythonanywhere.com/users/api/user_profile/",
 					"protocol": "http",
 					"host": [
-						"127",
-						"0",
-						"0",
-						"1"
+						"dima699699",
+						"pythonanywhere",
+						"com"
 					],
-					"port": "8000",
 					"path": [
 						"users",
 						"api",
