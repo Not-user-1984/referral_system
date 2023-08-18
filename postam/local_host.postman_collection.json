@@ -7,7 +7,7 @@
 	},
 	"item": [
 		{
-			"name": "http://127.0.0.1:8000/users/api/request_phone_number/",
+			"name": "http://localhost/users/api/request_phone_number/",
 			"request": {
 				"method": "POST",
 				"header": [],
@@ -21,7 +21,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://127.0.0.1:8000/users/api/request_phone_number/",
+					"raw": "http://localhost/users/api/request_phone_number/",
 					"protocol": "http",
 					"host": [
 						"127",
@@ -41,7 +41,7 @@
 			"response": []
 		},
 		{
-			"name": "http://127.0.0.1:8000/users/api/verify_code/",
+			"name": "http://localhost/users/api/verify_code/",
 			"request": {
 				"auth": {
 					"type": "noauth"
@@ -58,7 +58,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://127.0.0.1:8000/users/api/verify_code/",
+					"raw": "http://localhost/users/api/verify_code/",
 					"protocol": "http",
 					"host": [
 						"127",
@@ -78,7 +78,7 @@
 			"response": []
 		},
 		{
-			"name": "http://127.0.0.1:8000/users/api/activate_invite_code/",
+			"name": "http://localhost/users/api/activate_invite_code/",
 			"request": {
 				"auth": {
 					"type": "noauth"
@@ -101,7 +101,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://127.0.0.1:8000/users/api/activate_invite_code/",
+					"raw": "http://localhost/users/api/activate_invite_code/",
 					"protocol": "http",
 					"host": [
 						"127",
@@ -121,7 +121,7 @@
 			"response": []
 		},
 		{
-			"name": "http://127.0.0.1:8000/users/api/invited-users/",
+			"name": "http://localhost/users/api/invited-users/",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -147,7 +147,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://127.0.0.1:8000/users/api/invited-users/",
+					"raw": "http://localhost/users/api/invited-users/",
 					"protocol": "http",
 					"host": [
 						"127",
@@ -167,7 +167,7 @@
 			"response": []
 		},
 		{
-			"name": "http://127.0.0.1:8000/users/api/user_profile/",
+			"name": "http://localhost/users/api/user_profile/",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -193,7 +193,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://127.0.0.1:8000/users/api/user_profile/",
+					"raw": "http://localhost/users/api/user_profile/",
 					"protocol": "http",
 					"host": [
 						"127",

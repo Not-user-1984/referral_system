@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "985185f1-7491-4ba3-8a94-034b53c68ff7",
+		"_postman_id": "23d42944-de93-45f0-adf5-36525bd5165d",
 		"name": "dev_host",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "23513874"
@@ -97,7 +97,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://127.0.0.1:8000/users/api/activate_invite_code/",
+					"raw": "http://dima699699.pythonanywhere.com/users/api/activate_invite_code/",
 					"protocol": "http",
 					"host": [
 						"127",
@@ -143,7 +143,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://127.0.0.1:8000/users/api/invited-users/",
+					"raw": "http://dima699699.pythonanywhere.com/users/api/invited-users/",
 					"protocol": "http",
 					"host": [
 						"127",
@@ -163,7 +163,7 @@
 			"response": []
 		},
 		{
-			"name": " мой профиль",
+			"name": "профиль",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -189,7 +189,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://127.0.0.1:8000/users/api/user_profile/",
+					"raw": "http://dima699699.pythonanywhere.com/users/api/user_profile/",
 					"protocol": "http",
 					"host": [
 						"127",
