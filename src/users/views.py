@@ -2,7 +2,7 @@ import random
 import string
 import time
 from datetime import datetime
-from django.shortcuts import render
+
 from django.core.exceptions import ObjectDoesNotExist
 from rest_framework import status
 from rest_framework.authtoken.models import Token
