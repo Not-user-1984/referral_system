@@ -1,0 +1,212 @@
+{
+	"info": {
+		"_postman_id": "985185f1-7491-4ba3-8a94-034b53c68ff7",
+		"name": "dev_host",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23513874"
+	},
+	"item": [
+		{
+			"name": "ввод номера телефона",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"phone_number\": \"+7234567979\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://dima699699.pythonanywhere.com/users/api/request_phone_number/",
+					"protocol": "http",
+					"host": [
+						"dima699699",
+						"pythonanywhere",
+						"com"
+					],
+					"path": [
+						"users",
+						"api",
+						"request_phone_number",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "получить токен и зарег",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"phone_number\": \"+7234567979\",\n    \"code\": \"2802\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://dima699699.pythonanywhere.com/users/api/verify_code/",
+					"protocol": "http",
+					"host": [
+						"dima699699",
+						"pythonanywhere",
+						"com"
+					],
+					"path": [
+						"users",
+						"api",
+						"verify_code",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "активация инвайта",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token 3a9afa7870cb0b363f70a0b93d9fb114df62dd7e",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\n    \"invite_code\": \"10JPKp\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/users/api/activate_invite_code/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"users",
+						"api",
+						"activate_invite_code",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "список кому делал инивай",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token 3a9afa7870cb0b363f70a0b93d9fb114df62dd7e",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/users/api/invited-users/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"users",
+						"api",
+						"invited-users",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": " мой профиль",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token 3a9afa7870cb0b363f70a0b93d9fb114df62dd7e",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/users/api/user_profile/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"users",
+						"api",
+						"user_profile",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

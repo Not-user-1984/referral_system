@@ -11,7 +11,7 @@ SECRET_KEY = 'django-insecure-l$+v&l_^)l$arx6e)cypu#cjx(wys7+kce^o72_8wz8+khh$n0
 
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 INSTALLED_APPS = [
@@ -25,7 +25,6 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'drf_yasg',
 ]
-
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
