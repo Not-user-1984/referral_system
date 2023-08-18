@@ -1,13 +1,13 @@
 
-проект доступен
+### Проект доступен
 [http://dima699699.pythonanywhere.com/admin/](http://dima699699.pythonanywhere.com/admin/)
 
-<br>
-Доступ:
+
+ Доступ:
 Phone number: +7123456789
 Password: 1234 
 
-дока:
+### Дока:
 
 [http://dima699699.pythonanywhere.com/redoc/](http://dima699699.pythonanywhere.com/redoc/)
 
@@ -17,7 +17,8 @@ Password: 1234
 <summary>
 Запуск в docker
 </summary>
-Коллекция в posman  local_host.postman_collection
+
+Коллекция для теста в posman/local_host.postman_collection
 
 ```bash
     git clone git@github.com:Not-user-1984/referral_system.git
